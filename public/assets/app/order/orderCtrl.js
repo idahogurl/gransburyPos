@@ -104,7 +104,7 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
     $scope.addItem = function (item) {
 
         //not an existing orderLineItem, create an orderLineItem
-        function setOrderLineItem() {
+        $scope.setOrderLineItem = function() {
             orderLineItem = {} //what to put for orderNumber??
             orderLineItem.qty = 1;
             orderLineItem.itemName = item.name;
@@ -112,32 +112,56 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
             orderLineItem.itemId = item.id;
         }
 
-        function getExtendedPrice(qty, price) {
+        $scope.getExtendedPrice = function(qty, price) {
             return (qty * parseFloat(price)).toString();
         }
+
+        $scope.saveOrder = function() {
+            //does it match the filter
+            $scope.addToFilteredOrders = function (order, selectedFilters) {
+                if ($.inArray(order.status, selectedFilters) != -1) {
+                    return true;
+                }
+                return false
+            };
+
+            //TODO, how should this work with multiple In Progress items
+            if ($scope.order.orderNumber == undefined) {
+                $scope.order.orderNumber = 0;
+            }
+
+            if ($scope.status == null) {
+                $scope.status = "In Progress";
+            }
+
+            $scope.orders.push($scope.order);
+            orderSvc.saveOrder($scope.order);
+
+            if (this.addToFilteredOrders($scope.order, this.getSelectedFilters($scope.filterButtons))) {
+                $scope.filteredOrders.push($scope.order);
+            };
+        }
+
+
 
         //find in list
         var orderLineItem = $scope.orderLineItems[item.id];
 
         if (undefined == orderLineItem) {
-            setOrderLineItem();
+            this.setOrderLineItem();
         } else {
             orderLineItem.qty++;
         }
 
-        orderLineItem.extendedPrice = getExtendedPrice(orderLineItem.qty, orderLineItem.price);
+        orderLineItem.extendedPrice = this.getExtendedPrice(orderLineItem.qty, orderLineItem.price);
 
         $scope.orderLineItems[item.id] = orderLineItem;
 
         this.updateTotals();
+        this.saveOrder();
 
-        //TODO, how should this work with multiple In Progress items
-        if ($scope.order.orderNumber == undefined) {
-            $scope.order.orderNumber = 0;
-        }
-
-        orderSvc.saveOrder($scope.order);
         orderSvc.saveOrderLineItem($scope.order.orderNumber, orderLineItem);
+
     };
 
     $scope.setSelectedOrderItem = function (orderLineItem) {
