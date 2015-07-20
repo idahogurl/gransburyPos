@@ -17,7 +17,7 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
             'unpaid': {name: "unpaid", displayName: "Unpaid", selected: true},
             'paid': {name: "paid", displayName: "Paid", selected: true}
         };
-    }
+    };
 
 
     $scope.initFilterButtons();
@@ -27,15 +27,15 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
 
         $scope.getSelectedFilters = function (filterButtons) {
             var selectedFilters = [];
-            for (var filterName in filterButtons) {
-                var filterButton = filterButtons[filterName];
+            $.each(filterButtons, function (filterName, filterButton) {
+
                 if (filterButton.selected) {
                     selectedFilters.push(filterButton.displayName);
                 }
-            }
+            });
 
             return selectedFilters;
-        }
+        };
 
         $scope.applyFilter = function (orders, selectedFilters) {
             var filteredOrders = [];
@@ -45,10 +45,10 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
                 }
             }
             return filteredOrders;
-        }
+        };
 
         $scope.filteredOrders = this.applyFilter(orders, this.getSelectedFilters($scope.filterButtons));
-    }
+    };
 
     orderSvc.getOrders($scope.filter).then(
         function (orders) {
@@ -105,24 +105,22 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
 
         //not an existing orderLineItem, create an orderLineItem
         $scope.setOrderLineItem = function() {
-            orderLineItem = {} //what to put for orderNumber??
+            orderLineItem = {}; //what to put for orderNumber??
             orderLineItem.qty = 1;
             orderLineItem.itemName = item.name;
             orderLineItem.price = item.price;
             orderLineItem.itemId = item.id;
-        }
+        };
 
         $scope.getExtendedPrice = function(qty, price) {
             return (qty * parseFloat(price)).toString();
-        }
+        };
 
         $scope.saveOrder = function() {
             //does it match the filter
             $scope.addToFilteredOrders = function (order, selectedFilters) {
-                if ($.inArray(order.status, selectedFilters) != -1) {
-                    return true;
-                }
-                return false
+                return $.inArray(order.status, selectedFilters) != -1;
+
             };
 
             //TODO, how should this work with multiple In Progress items
@@ -139,8 +137,8 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
 
             if (this.addToFilteredOrders($scope.order, this.getSelectedFilters($scope.filterButtons))) {
                 $scope.filteredOrders.push($scope.order);
-            };
-        }
+            }
+        };
 
 
 
@@ -197,11 +195,11 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
 
         $scope.getTaxTotal = function (subTotal) {
             return (parseFloat(subTotal) * .06).toFixed(2);
-        }
+        };
 
         $scope.getGrandTotal = function (subTotal, taxTotal) {
             return (parseFloat(subTotal) + parseFloat(taxTotal)).toFixed(2);
-        }
+        };
 
         $scope.order.subTotal = this.getSubTotal($scope.orderLineItems);
         $scope.order.taxTotal = this.getTaxTotal($scope.order.subTotal);
@@ -224,24 +222,20 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
 
     $scope.updateFilter = function (filterName) {
         $scope.setAllButtons = function (filterButtons, selected) {
-            for (var filterName in filterButtons) {
-                filterButtons[filterName].selected = selected;
-            }
+            $.each(filterButtons, function(filterName, filterButton) {
+                filterButton.selected = selected
+            });
         };
 
         $scope.isAllSelected = function (filterButtons) {
             var selectedButtons = [];
             for (var filterName in filterButtons) {
 
-                if (filterButtons[filterName].selected && filterName != "all") {
-                    selectedButtons.push(filterName);
-                }
+                if (filterButtons[filterName].selected && filterName != "all") selectedButtons.push(filterName);
             }
 
-            if (selectedButtons.length == 3) {
-                return true;
-            }
-            return false;
+            return selectedButtons.length == 3;
+
         };
 
         if (filterName == "all") {

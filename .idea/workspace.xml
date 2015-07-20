@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="633df46d-819a-4c1e-b37a-30c00c50ce80" name="Default" comment="">
+    <list default="true" id="633df46d-819a-4c1e-b37a-30c00c50ce80" name="Default" comment="Javascript clean up">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/app/order/orderCtrl.js" afterPath="$PROJECT_DIR$/public/assets/app/order/orderCtrl.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -28,18 +28,17 @@
       <file leaf-file-name="orderCtrl.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/assets/app/order/orderCtrl.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8">
-              <caret line="139" column="99" selection-start-line="139" selection-start-column="99" selection-end-line="139" selection-end-column="99" />
+            <state vertical-scroll-proportion="0.6753689">
+              <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
               <folding>
-                <element signature="e#871#1216#0" expanded="false" />
-                <element signature="e#1384#1543#0" expanded="false" />
-                <element signature="e#1458#1529#0" expanded="false" />
-                <element signature="e#1892#1941#0" expanded="false" />
-                <element signature="e#2014#2059#0" expanded="false" />
-                <element signature="e#2274#2562#0" expanded="false" />
-                <element signature="e#4906#4963#0" expanded="false" />
-                <element signature="e#6444#6747#0" expanded="false" />
-                <element signature="e#6793#6879#0" expanded="false" />
+                <element signature="e#1347#1506#0" expanded="false" />
+                <element signature="e#1421#1492#0" expanded="false" />
+                <element signature="e#1857#1906#0" expanded="false" />
+                <element signature="e#1979#2024#0" expanded="false" />
+                <element signature="e#2239#2527#0" expanded="false" />
+                <element signature="e#4796#4853#0" expanded="false" />
+                <element signature="e#6336#6639#0" expanded="false" />
+                <element signature="e#6685#6771#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -456,7 +455,13 @@
       <option name="project" value="LOCAL" />
       <updated>1437416787194</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed filter to apply when a new order is added">
+      <created>1437418337740</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1437418337740</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -522,22 +527,33 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Finishing RESTful servicel; Filtering buttons and filtering the orders listing now works" />
     <MESSAGE value="Duplicate controller" />
-    <option name="LAST_COMMIT_MESSAGE" value="Duplicate controller" />
+    <MESSAGE value="Fixed filter to apply when a new order is added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed filter to apply when a new order is added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/public/assets/app/order/orderCtrl.js</url>
-          <line>76</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="7" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/public/assets/app/order/orderCtrl.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#1347#1506#0" expanded="false" />
+            <element signature="e#1421#1492#0" expanded="false" />
+            <element signature="e#1857#1906#0" expanded="false" />
+            <element signature="e#1979#2024#0" expanded="false" />
+            <element signature="e#2239#2527#0" expanded="false" />
+            <element signature="e#4796#4853#0" expanded="false" />
+            <element signature="e#6336#6639#0" expanded="false" />
+            <element signature="e#6685#6771#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -550,15 +566,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="173" column="17" selection-start-line="173" selection-start-column="17" selection-end-line="173" selection-end-column="17" />
           <folding>
-            <element signature="e#871#1216#0" expanded="false" />
-            <element signature="e#1384#1543#0" expanded="false" />
-            <element signature="e#1458#1529#0" expanded="false" />
-            <element signature="e#1892#1941#0" expanded="false" />
-            <element signature="e#2014#2059#0" expanded="false" />
-            <element signature="e#2274#2562#0" expanded="false" />
-            <element signature="e#4906#4963#0" expanded="false" />
-            <element signature="e#6444#6747#0" expanded="false" />
-            <element signature="e#6793#6879#0" expanded="false" />
+            <element signature="e#1347#1506#0" expanded="false" />
+            <element signature="e#1421#1492#0" expanded="false" />
+            <element signature="e#1857#1906#0" expanded="false" />
+            <element signature="e#1979#2024#0" expanded="false" />
+            <element signature="e#2239#2527#0" expanded="false" />
+            <element signature="e#4796#4853#0" expanded="false" />
+            <element signature="e#6336#6639#0" expanded="false" />
+            <element signature="e#6685#6771#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -631,15 +646,14 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="205" column="7" selection-start-line="205" selection-start-column="7" selection-end-line="205" selection-end-column="7" />
           <folding>
-            <element signature="e#871#1216#0" expanded="false" />
-            <element signature="e#1384#1543#0" expanded="false" />
-            <element signature="e#1458#1529#0" expanded="false" />
-            <element signature="e#1892#1941#0" expanded="false" />
-            <element signature="e#2014#2059#0" expanded="false" />
-            <element signature="e#2274#2562#0" expanded="false" />
-            <element signature="e#4906#4963#0" expanded="false" />
-            <element signature="e#6444#6747#0" expanded="false" />
-            <element signature="e#6793#6879#0" expanded="false" />
+            <element signature="e#1347#1506#0" expanded="false" />
+            <element signature="e#1421#1492#0" expanded="false" />
+            <element signature="e#1857#1906#0" expanded="false" />
+            <element signature="e#1979#2024#0" expanded="false" />
+            <element signature="e#2239#2527#0" expanded="false" />
+            <element signature="e#4796#4853#0" expanded="false" />
+            <element signature="e#6336#6639#0" expanded="false" />
+            <element signature="e#6685#6771#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -821,18 +835,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/assets/app/order/orderCtrl.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8">
-          <caret line="139" column="99" selection-start-line="139" selection-start-column="99" selection-end-line="139" selection-end-column="99" />
+        <state vertical-scroll-proportion="0.6753689">
+          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
           <folding>
-            <element signature="e#871#1216#0" expanded="false" />
-            <element signature="e#1384#1543#0" expanded="false" />
-            <element signature="e#1458#1529#0" expanded="false" />
-            <element signature="e#1892#1941#0" expanded="false" />
-            <element signature="e#2014#2059#0" expanded="false" />
-            <element signature="e#2274#2562#0" expanded="false" />
-            <element signature="e#4906#4963#0" expanded="false" />
-            <element signature="e#6444#6747#0" expanded="false" />
-            <element signature="e#6793#6879#0" expanded="false" />
+            <element signature="e#1347#1506#0" expanded="false" />
+            <element signature="e#1421#1492#0" expanded="false" />
+            <element signature="e#1857#1906#0" expanded="false" />
+            <element signature="e#1979#2024#0" expanded="false" />
+            <element signature="e#2239#2527#0" expanded="false" />
+            <element signature="e#4796#4853#0" expanded="false" />
+            <element signature="e#6336#6639#0" expanded="false" />
+            <element signature="e#6685#6771#0" expanded="false" />
           </folding>
         </state>
       </provider>
