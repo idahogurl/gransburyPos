@@ -2,100 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="633df46d-819a-4c1e-b37a-30c00c50ce80" name="Default" comment="Finishing RESTful servicel; Filtering buttons and filtering the orders listing now works">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/images/AjaxLoader.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/Items.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Items.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/ItemsController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/OrderLineItems.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/Orders.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrdersController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Models/TenderRecords.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/Http/Controllers/TenderRecordsController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-animate.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-animate.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-animate.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-aria.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-aria.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-aria.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-cookies.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-cookies.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-cookies.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-csp.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-loader.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-loader.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-loader.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-message-format.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-message-format.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-message-format.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-messages.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-messages.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-messages.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-mocks.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-resource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-resource.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-resource.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-route.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-route.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-sanitize.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-touch.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-ui-date.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular-ui-router.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular.min.js.map" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/angular/angular.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/css/app.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/app/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/js/jquery-1.11.3.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/app/order/orderCtrl.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/app/order/orderSvc.js" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\.env.example" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\app\app.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\app\order\orderCtrl.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\app\order\orderSvc.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\css\app.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\css\bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\css\font-awesome.min.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\images\AjaxLoader.gif" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-animate.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-animate.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-animate.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-aria.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-aria.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-aria.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-cookies.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-cookies.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-cookies.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-csp.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-loader.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-loader.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-loader.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-message-format.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-message-format.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-message-format.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-messages.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-messages.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-messages.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-mocks.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-resource.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-resource.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-resource.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-route.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-route.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-sanitize.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-touch.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-ui-date.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular-ui-router.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\angular\angular.min.js.map" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\assets\js\jquery-1.11.3.min.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/app.php" afterPath="$PROJECT_DIR$/bootstrap/app.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
+      <change type="DELETED" beforePath="C:\1_Development\Projects\gransburyPos\app\Http\Controllers\Items.php" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="gransburyPos.iws" />
@@ -121,9 +28,10 @@
       <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6909518">
-              <caret line="181" column="90" selection-start-line="181" selection-start-column="90" selection-end-line="181" selection-end-column="90" />
+            <state vertical-scroll-proportion="0.074030556">
+              <caret line="156" column="55" selection-start-line="156" selection-start-column="55" selection-end-line="156" selection-end-column="55" />
               <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
@@ -225,7 +133,9 @@
     </leaf>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="FORCE_PUSH_ALLOWED" value="true" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -570,7 +480,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="editor.preferences.appearance" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="FullScreen" value="false" />
@@ -619,22 +529,30 @@
       <option name="number" value="Default" />
       <updated>1437254568388</updated>
     </task>
+    <task id="LOCAL-00001" summary="Finishing RESTful servicel; Filtering buttons and filtering the orders listing now works">
+      <created>1437416501206</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1437416501206</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1040" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.123424366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.123424366" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -678,6 +596,12 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="Finishing RESTful servicel; Filtering buttons and filtering the orders listing now works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finishing RESTful servicel; Filtering buttons and filtering the orders listing now works" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -697,6 +621,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -791,6 +716,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="252" column="105" selection-start-line="252" selection-start-column="105" selection-end-line="252" selection-end-column="105" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
@@ -898,13 +824,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Items.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -912,6 +832,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.7">
           <caret line="21" column="10" selection-start-line="21" selection-start-column="10" selection-end-line="21" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1029,9 +950,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6909518">
-          <caret line="181" column="90" selection-start-line="181" selection-start-column="90" selection-end-line="181" selection-end-column="90" />
+        <state vertical-scroll-proportion="0.074030556">
+          <caret line="156" column="55" selection-start-line="156" selection-start-column="55" selection-end-line="156" selection-end-column="55" />
           <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
