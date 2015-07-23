@@ -10,9 +10,16 @@ namespace App\Models;
 class Orders
 {
 
-   public static function all()
+    public static function get($orderNumber)
     {
-        return app('db')->table("orders")->select(app('db')->raw("orders.*, amountTendered"))
+        return app('db')->table("orders")->select(app('db')->raw("orders.*, tenderrecords.timestamp as paidTimeStamp, changeGiven, amountTendered"))
+            ->leftJoin('tenderrecords', 'tenderrecords.orderNumber', '=', 'orders.orderNumber')
+            ->where("orders.orderNumber", "=", $orderNumber)->first();
+    }
+
+    public static function all()
+    {
+        return app('db')->table("orders")->select(app('db')->raw("orders.orderNumber, orders.timeStamp, grandTotal, amountTendered"))
             ->leftJoin('tenderrecords', 'tenderrecords.orderNumber', '=', 'orders.orderNumber')
             ->get();
     }
