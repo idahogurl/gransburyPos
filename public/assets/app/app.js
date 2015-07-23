@@ -5,15 +5,15 @@
 var itemsFileContent;
 
 $(document)
-    .on('show.bs.modal', '.modal', function (event) {
-        $(this).appendTo($('body'));
-    })
-    .on('shown.bs.modal', '.modal.in', function (event) {
-        setModalsAndBackdropsOrder();
-    })
-    .on('hidden.bs.modal', '.modal', function (event) {
-        setModalsAndBackdropsOrder();
-    })
+//    .on('show.bs.modal', '.modal', function () {
+//        $(this).appendTo($('body'));
+//    })
+//    .on('shown.bs.modal', '.modal.in', function () {
+//        setModalsAndBackdropsOrder();
+//    })
+//    .on('hidden.bs.modal', '.modal', function () {
+//        setModalsAndBackdropsOrder();
+//    })
     .on('change', '.btn-file :file', function (event) {
         getItemsFileContents(this, event);
     });
@@ -72,7 +72,7 @@ function toJSON(csv) {
 }
 
 function cancelImport() {
-    $('#selectedFileName').html("");
+    angular.element("#selectedFileName").html("");
 }
 
-var orderApp = angular.module("orderApp", ['ngResource']);
+var orderApp = angular.module("orderApp", ["ui.bootstrap"]);

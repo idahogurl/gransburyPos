@@ -1,73 +1,41 @@
 /**
  * Created by rvest on 7/15/2015.
  */
-orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
+orderApp.controller("orderCtrl", function ($scope, $window, $modal, orderSvc) {
     $scope.items = {};
-    $scope.orders = {};
     $scope.order = {};
     $scope.orderLineItems = {};
     $scope.selectedOrderItem = {};
-    $scope.filterButtons = [];
 
-    $scope.initFilterButtons = function () {
-
-        $scope.filterButtons = {
-            'all': {name: "all", displayName: "All", selected: true},
-            'inprogress': {name: "inprogress", displayName: "In Progress", selected: true},
-            'unpaid': {name: "unpaid", displayName: "Unpaid", selected: true},
-            'paid': {name: "paid", displayName: "Paid", selected: true}
-        };
-    };
-
-
-    $scope.initFilterButtons();
-
-    $scope.filterOrders = function (orders) {
-        $scope.filteredOrders = [];
-
-        $scope.getSelectedFilters = function (filterButtons) {
-            var selectedFilters = [];
-            $.each(filterButtons, function (filterName, filterButton) {
-
-                if (filterButton.selected) {
-                    selectedFilters.push(filterButton.displayName);
-                }
-            });
-
-            return selectedFilters;
-        };
-
-        $scope.applyFilter = function (orders, selectedFilters) {
-            var filteredOrders = [];
-            for (var i = 0, len = orders.length; i < len; i++) {
-                if ($.inArray(orders[i].status, selectedFilters) != -1) {
-                    filteredOrders.push(orders[i]);
+    $scope.viewOrders = function () {
+        var modalInstance = $modal.open({
+            animation: $scope.animationsEnabled,
+            templateUrl: "assets/app/order/templates/ordersModal.html",
+            controller: "ordersModalCtrl",
+            size: "lg",
+            backdrop: false,
+            windowTemplateUrl: "assets/app/order/templates/modal/window.html",
+            resolve: {
+                orders: function () {
+                    return orderSvc.getOrders();
                 }
             }
-            return filteredOrders;
-        };
+        });
 
-        $scope.filteredOrders = this.applyFilter(orders, this.getSelectedFilters($scope.filterButtons));
+        modalInstance.result.then(function (orderNumber) {
+            $scope.order = $scope.getOrder(orderNumber);
+        }, function () {
+            console.log("Modal dismissed at: " + new Date());
+        });
     };
 
-    orderSvc.getOrders($scope.filter).then(
-        function (orders) {
-            $scope.orders = orders;
-            $scope.filterOrders(orders);
-        },
-        function (statusCode) {
-
-            console.log(statusCode);
-        }
-    );
-
     orderSvc.getAvailableItems().then(
-        function (items) {
-            $scope.items = items;
-        },
-        function (statusCode) {
-            console.log(statusCode);
-        }
+            function (items) {
+                $scope.items = items;
+            },
+            function (statusCode) {
+                console.log(statusCode);
+            }
     );
 
     $scope.isEmpty = function (obj) {
@@ -77,75 +45,61 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
     $scope.getOrderLineItems = function () {
 
         orderSvc.getOrderLineItems($scope.order.orderNumber).then(
-            function (orderLineItems) {
-                $scope.orderLineItems = orderLineItems;
-            },
-            function (statusCode) {
-                console.log(statusCode);
-            }
+                function (orderLineItems) {
+                    $scope.orderLineItems = orderLineItems;
+                },
+                function (statusCode) {
+                    console.log(statusCode);
+                }
         );
     };
 
     $scope.getOrder = function (orderNumber) {
-        orderSvc.getOrder(orderNumber).then(
-            function (order) {
-                $scope.order = order;
 
-                $scope.getOrderLineItems();
-            },
-            function (statusCode) {
+        $scope.order = orderSvc.orders[orderNumber];
 
-                console.log(statusCode);
-            }
-        );
+        $scope.getOrderLineItems();
+    };
 
+    $scope.getOrders = function () {
+        orderSvc.getOrders();
     };
 
     $scope.addItem = function (item) {
 
         //not an existing orderLineItem, create an orderLineItem
-        $scope.setOrderLineItem = function() {
-            orderLineItem = {}; //what to put for orderNumber??
+        $scope.setOrderLineItem = function () {
+            var orderLineItem = {}; //what to put for orderNumber??
             orderLineItem.qty = 1;
             orderLineItem.itemName = item.name;
             orderLineItem.price = item.price;
             orderLineItem.itemId = item.id;
         };
 
-        $scope.getExtendedPrice = function(qty, price) {
+        $scope.getExtendedPrice = function (qty, price) {
             return (qty * parseFloat(price)).toString();
         };
 
-        $scope.saveOrder = function() {
-            //does it match the filter
-            $scope.addToFilteredOrders = function (order, selectedFilters) {
-                return $.inArray(order.status, selectedFilters) != -1;
+        $scope.saveOrder = function () {
 
-            };
 
             //TODO, how should this work with multiple In Progress items
-            if ($scope.order.orderNumber == undefined) {
+            if ($scope.order.orderNumber === undefined) {
                 $scope.order.orderNumber = 0;
             }
 
-            if ($scope.status == null) {
+            if ($scope.status === null) {
                 $scope.status = "In Progress";
             }
 
-            $scope.orders.push($scope.order);
+            orderSvc.orders.push($scope.order);
             orderSvc.saveOrder($scope.order);
-
-            if (this.addToFilteredOrders($scope.order, this.getSelectedFilters($scope.filterButtons))) {
-                $scope.filteredOrders.push($scope.order);
-            }
         };
-
-
 
         //find in list
         var orderLineItem = $scope.orderLineItems[item.id];
 
-        if (undefined == orderLineItem) {
+        if (undefined === orderLineItem) {
             this.setOrderLineItem();
         } else {
             orderLineItem.qty++;
@@ -220,40 +174,6 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
         $scope.order.changeDue = "";
     };
 
-    $scope.updateFilter = function (filterName) {
-        $scope.setAllButtons = function (filterButtons, selected) {
-            $.each(filterButtons, function(filterName, filterButton) {
-                filterButton.selected = selected
-            });
-        };
-
-        $scope.isAllSelected = function (filterButtons) {
-            var selectedButtons = [];
-            for (var filterName in filterButtons) {
-
-                if (filterButtons[filterName].selected && filterName != "all") selectedButtons.push(filterName);
-            }
-
-            return selectedButtons.length == 3;
-
-        };
-
-        if (filterName == "all") {
-            var allButton = $scope.filterButtons["all"];
-            allButton.selected = !allButton.selected;
-
-            //set all other buttons to match the All button's selected value
-            this.setAllButtons($scope.filterButtons, allButton.selected);
-
-        } else {
-            $scope.filterButtons[filterName].selected = !$scope.filterButtons[filterName].selected;
-
-            $scope.filterButtons["all"].selected = this.isAllSelected($scope.filterButtons);
-        }
-
-        this.filterOrders($scope.orders);
-    };
-
     $scope.startNewOrder = function () {
         $scope.order = {};
         $scope.order.orderNumber = 0; //TODO
@@ -262,19 +182,19 @@ orderApp.controller("orderCtrl", function ($scope, $window, orderSvc) {
 
     $scope.createTenderRecord = function () {
         orderSvc.createTenderRecord($scope.order).then(
-            function (orderNumber) {
-                $scope.order.orderNumber = orderNumber;
-            },
-            function (statusCode) {
-                console.log(statusCode);
-            }
+                function (orderNumber) {
+                    $scope.order.orderNumber = orderNumber;
+                },
+                function (statusCode) {
+                    console.log(statusCode);
+                }
         );
     };
 
     $scope.importItems = function () {
         orderSvc.importItems($window.itemsFileContent);
 
-        $('#selectedFileName').html("");
+        angular.element("#selectedFileName").html("");
     };
 });
 

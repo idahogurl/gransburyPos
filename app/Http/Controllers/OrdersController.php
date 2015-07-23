@@ -3,7 +3,6 @@ namespace App\Http\Controllers;
 
 use App\Models\OrderLineItems;
 use App\Models\Orders;
-use Illuminate\Http\Request;
 
 /**
  * Created by PhpStorm.
@@ -17,11 +16,23 @@ class OrdersController extends Controller
     public static function all()
     {
         $orders = Orders::all();
+        
+        $keyValueArray = array();
 
         foreach ($orders as $order) {
-            $order->status = OrdersController::getStatus($order->orderNumber, $order->amountTendered);
+            $keyValueArray[$order->orderNumber] = array(
+                
+                "orderNumber" => $order->orderNumber,
+                "timestamp" => $order->timestamp,
+                "subTotal" => $order->subTotal,
+                "taxTotal" => $order->taxTotal,
+                "grandTotal" => $order->grandTotal,
+                "status" => OrdersController::getStatus($order->orderNumber, $order->amountTendered)
+
+            );
         }
-        return response()->json($orders);
+
+        return response()->json($keyValueArray);
     }
 
     private static function getStatus($orderNumber, $amountTendered)
@@ -54,11 +65,6 @@ class OrdersController extends Controller
         }
 
         return response()->json($keyValueArray);
-    }
-
-    public static function get($orderNumber)
-    {
-        return response()->json(Orders::get($orderNumber));
     }
 
     public static function save()
