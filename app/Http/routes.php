@@ -15,16 +15,17 @@ $app->get('/', function () {
     return view('index');
 });
 
-$app->get("api/orders/{orderNumber}/items/", "OrdersController@getItems");
-$app->post("api/orders/{orderNumber}/items/", "OrdersController@addItem");
-$app->post("api/orders/{orderNumber}/items/{itemNumber}", "OrdersController@updateQty");
-$app->delete("api/orders/{orderNumber}/items/{itemNumber}", "OrdersController@voidItem");
+$app->get("api/orders/{orderId}/items/", "OrdersController@getItems");
+$app->post("api/orders/{orderId}/items/", "OrdersController@addItem");
+$app->post("api/orders/{orderId}/items/{itemNumber}", "OrdersController@updateQty");
+$app->delete("api/orders/{orderId}/items/{itemNumber}", "OrdersController@voidItem");
 $app->get("api/orders/", "OrdersController@all");
 $app->post("api/orders/", "OrdersController@save");
-$app->get("api/orders/{orderNumber}", "OrdersController@get");
+$app->post("api/orders/{orderId}", "OrdersController@save");
+$app->get("api/orders/{orderId}", "OrdersController@get");
 $app->get("api/items/", "ItemsController@all");
 $app->post("api/items/", "ItemsController@import");
-$app->post("api/tenderrecords/order/{orderNumber}", "TenderRecordsController@create"); //how to record tender for In Progress item
+$app->post("api/tenderrecords/orders/{orderId}", "TenderRecordsController@create"); //how to record tender for In Progress item
 
 
 //$app->get('orders/{orderNumber}/items/', function () {

@@ -18,63 +18,62 @@ class OrdersController extends Controller
     {
         $orders = Orders::all();
 
+        $keyValueArray = array();
+
         foreach ($orders as $order) {
             $order->status = OrdersController::getStatus($order->orderNumber, $order->amountTendered);
+            $keyValueArray[$order->orderId] = $order;
         }
-        return response()->json($orders);
+        return response()->json($keyValueArray);
     }
 
     private static function getStatus($orderNumber, $amountTendered)
     {
-        if ($orderNumber == null) {
+        if (empty($orderNumber)) {
             return "In Progress";
         }
-        if ($amountTendered == null) {
+        if (empty($amountTendered)) {
             return "Unpaid";
         }
         return "Paid";
     }
 
-    public function getItems($orderNumber)
+    public function getItems($orderId)
     {
 
-        $orderItems = OrderLineItems::all($orderNumber);
+        $orderItems = OrderLineItems::all($orderId);
 
         $keyValueArray = array();
 
         foreach ($orderItems as $orderItem) {
-            $keyValueArray[$orderItem->itemId] = array(
-                "itemId" => $orderItem->itemId,
-                "itemName" => $orderItem->name,
-                "price" => $orderItem->price,
-                "qty" => $orderItem->qty,
-                "extendedPrice" => $orderItem->extendedPrice
-
-            );
+            $keyValueArray[$orderItem->itemId] = $orderItem;
         }
 
         return response()->json($keyValueArray);
     }
 
-    public static function get($orderNumber)
+    public static function get($orderId)
     {
-        return response()->json(Orders::get($orderNumber));
+        $order = Orders::get($orderId);
+        $order->status = OrdersController::getStatus($order->orderNumber, $order->amountTendered);
+        //$order->amountTendered = strval($order->amountTendered);
+        return response()->json($order);
     }
 
-    public static function save()
+    public static function save($orderId=false)
     {
-        $orderNumber = Orders::save();
+        return response()->json(Orders::save($orderId));
     }
 
-    public static function addItem()
+    public static function addItem($orderId)
     {
-        OrderLineItems::create();
+        OrderLineItems::create($orderId);
     }
 
-    public static function updateQty()
+    public static function updateQty($orderId, $itemId)
     {
-        OrderLineItems::updateQty();
-        Orders::save();
+        OrderLineItems::updateQty($orderId, $itemId);
+        Orders::save($orderId);
     }
 
 }

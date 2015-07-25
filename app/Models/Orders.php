@@ -10,54 +10,52 @@ namespace App\Models;
 class Orders
 {
 
-    public static function get($orderNumber)
+    public static function get($orderId)
     {
         return app('db')->table("orders")->select(app('db')->raw("orders.*, tenderrecords.timestamp as paidTimeStamp, changeGiven, amountTendered"))
-            ->leftJoin('tenderrecords', 'tenderrecords.orderNumber', '=', 'orders.orderNumber')
-            ->where("orders.orderNumber", "=", $orderNumber)->first();
+            ->leftJoin('tenderrecords', 'tenderrecords.orderId', '=', 'orders.orderId')
+            ->where("orders.orderId", "=", $orderId)->first();
     }
 
     public static function all()
     {
-        return app('db')->table("orders")->select(app('db')->raw("orders.orderNumber, orders.timeStamp, grandTotal, amountTendered"))
-            ->leftJoin('tenderrecords', 'tenderrecords.orderNumber', '=', 'orders.orderNumber')
+        return app('db')->table("orders")->select(app('db')->raw("orders.*, amountTendered"))
+            ->leftJoin('tenderrecords', 'tenderrecords.orderId', '=', 'orders.orderId')
             ->get();
     }
 
-    public static function save()
+    public static function save($orderId=false)
     {
         $data = [
-            "subTotal" => app("request")->input("subTotal"),
-            "taxTotal" => app("request")->input("taxTotal"),
-            "grandTotal" => app("request")->input("grandTotal"),
-            "timestamp" => date("Y-m-d H:i:s")
+            "subTotal" => floatval(app("request")->input("subTotal")),
+            "taxTotal" => floatval(app("request")->input("taxTotal")),
+            "grandTotal" =>floatval(app("request")->input("grandTotal")),
+            "timestamp" => app("request")->input("timestamp")
         ];
 
-        $orderNumber = app("request")->input("orderNumber");
-
-        if ($orderNumber == 0) {
-
-            app("db")->table("orders")->insert($data);
+        if ($orderId === false) {
+            return app("db")->table("orders")->insertGetId($data);
         } else {
             unset($data["timestamp"]);
 
-            app("db")->table("orders")->where("orderNumber", $orderNumber)
+            app("db")->table("orders")->where("orderId", "=", $orderId)
                 ->update($data);
         }
     }
 
-    public static function setOrderNumber()
+    public static function setOrderNumber($orderId)
     {
-        app("db")->transaction(function ($order) {
-            $orderNumber = app("db")->table("orders")->max("orderNumber")->get();
+        return app("db")->transaction(function ($orderId) use ($orderId) {
+            $orderNumber = app("db")->table("orders")->max("orderNumber");
 
             if ($orderNumber == 100) {
                 $orderNumber = 1;
             }
-            $order["orderNumber"] = $orderNumber;
+            $orderNumber++;
 
-            //TODO: how do you know what in progress order to update??
-            app("db")->table("orders")->where("")->update($order);
+            app("db")->table("orders")->where("orderId", "=", $orderId)->update(["orderNumber" => $orderNumber]);
+
+            return $orderNumber;
         });
     }
 }

@@ -11,48 +11,39 @@ namespace App\Models;
 class OrderLineItems
 {
 
-    public static function all($orderNumber)
+    public static function all($orderId)
     {
         return app('db')->table("orderlineitems")
-            ->leftJoin('items', 'items.id', '=', 'orderLineItems.itemId')
-            ->where('orderLineItems.orderNumber', '=', $orderNumber)->get();
+            ->join('items', 'items.id', '=', 'orderLineItems.itemId')
+            ->where('orderLineItems.orderId', '=', $orderId)->get();
     }
 
-    public static function create()
+    public static function create($orderId)
     {
         $data = array(
             "qty" => app("request")->input("qty"),
-            "extendedPrice" => app("request")->input("extendedPrice"),
-            "price" => app("request")->input("price"),
-            "itemId" => app("request")->input("itemId")
+            "extendedPrice" => floatval(app("request")->input("extendedPrice")),
+            "price" => floatval(app("request")->input("price")),
+            "itemId" => app("request")->input("itemId"),
+            "orderId" => $orderId
         );
         app('db')->table("orderlineitems")->insert($data);
     }
 
-    function updateOrderNumber($orderNumber)
-    {
-        $data = array(
-            "orderNumber" => $orderNumber
-        );
-
-        //TODO: how do you know what order number to pick the right In Progress one
-        app("db")->table("orderlineitems")->where("")->update($data);
-    }
-
-    function updateQty($orderNumber, $itemId)
+    public static function updateQty($orderId, $itemId)
     {
         $data = array(
             "qty" => app("request")->input("qty"),
             "extendedPrice" => app("request")->input("extendedPrice")
         );
-        //TODO: how do you know what orderlineitem to update when it doesn't have an orderNumber??
-        $where = array("orderNumber" => $orderNumber, "itemId" => $itemId);
+        
+        $where = array("orderId" => $orderId, "itemId" => $itemId);
         app("db")->table("orderlineitems")->where($where)->update($data);
     }
 
-    function void($orderNumber, $itemId)
+    public static function void($orderId, $itemId)
     {
-        $where = array("orderNumber" => $orderNumber, "itemId" => $itemId);
-        app("db")->table("orderlineitems")->where("orderNumber", $where)->delete();
+        $where = array("orderId" => $orderId, "itemId" => $itemId);
+        app("db")->table("orderlineitems")->where("orderId", $where)->delete();
     }
 }

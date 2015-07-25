@@ -18,29 +18,36 @@ orderApp.factory("orderSvc", function ($http, $q, $resource) {
         getAvailableItems: function () {
             return this.getData("api/items");
         },
-        getOrderLineItems: function (orderNumber) {
-            return this.getData("api/orders/" + orderNumber + "/items");
+        getOrderLineItems: function (orderId) {
+            return this.getData("api/orders/" + orderId + "/items");
         },
-        getOrder: function (orderNumber) {
-            return this.getData("api/orders/" + orderNumber);
+        getOrder: function (orderId) {
+            return this.getData("api/orders/" + orderId);
         },
-        getTenderRecord: function (orderNumber) {
-            return this.getData("api/tenderRecord/" + orderNumber);
+        getTenderRecord: function (orderId) {
+            return this.getData("api/tenderRecord/" + orderId);
         },
         getOrders: function () {
             return this.getData("api/orders/");
         },
-        saveOrder: function (order) {
-             return $http.post("api/orders/", order);
+        createOrder: function (order) {           
+            return $http.post("api/orders/", order);            
         },
-        saveOrderLineItem: function (orderNumber, orderLineItem) {
-           return $http.post("api/orders/" + orderNumber + "/items", orderLineItem);
+        updateOrder: function(order) {
+            return $http.post("api/orders/" + order.orderId,  order);
         },
-        voidOrderLineItem: function (orderNumber, itemId) {
-            return $http.delete("api/orders/" + orderNumber + "/items/" + itemId);
+        updateQty: function (orderId, orderLineItem) {
+           return $http.post("api/orders/" + orderId + "/items/" + orderLineItem.itemId, orderLineItem);
+        },
+        addOrderLineItem: function (orderId, orderLineItem) {
+           return $http.post("api/orders/" + orderId + "/items", orderLineItem);
+        },
+        voidOrderLineItem: function (orderId, itemId) {
+            return $http.delete("api/orders/" + orderId + "/items/" + itemId);
         },
         createTenderRecord: function(order) {
-            //return $http.post("api/tenderrecord/order/" + orderNumber, order); //TODO: how do you know for what in progress order
+            console.log(order);
+            return $http.post("api/tenderrecords/orders/" + order.orderId, order); //TODO: how do you know for what in progress order
         },
         importItems: function(items){
            return $http.post("api/items/", items);

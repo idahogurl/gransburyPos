@@ -1,5 +1,7 @@
 <?php
-use App\Http\Controllers\Controller;
+namespace App\Http\Controllers;
+use App\Models\TenderRecords;
+use App\Models\Orders;
 
 /**
  * Created by PhpStorm.
@@ -9,9 +11,9 @@ use App\Http\Controllers\Controller;
  */
 class TenderRecordsController extends Controller
 {
-    function create($orderNumber) {
-        $orderNumber = Orders::setOrderNumber();
-        OrderLineItems::setOrderNumber($orderNumber);
-        TenderRecords::create($orderNumber);
+    public static function create($orderId) {
+        $orderNumber = Orders::setOrderNumber($orderId);
+        TenderRecords::create($orderId);
+        return response()->json($orderNumber);
     }
 }

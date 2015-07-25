@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 /**
  * Created by PhpStorm.
  * User: rvest
@@ -7,14 +8,14 @@
  */
 class TenderRecords
 {
-    function create($orderNumber) {
+    public static function create($orderId) {
         $data = [
-            "timestamp" => date(),
+            "timestamp" => date("Y-m-d H:i:s"),
             "amountTendered" => app("request")->input("amountTendered"),
-            "changeGiven" => date("Y-m-d H:i:s"),
-            "orderNumber"
+            "changeGiven" => app("request")->input("changeGiven"),
+            "orderId" => $orderId
         ];
-        $tenderRecord["orderNumber"] = $orderNumber;
-        app("db")->table("tenderrecords")->insert($tenderRecord);
+        
+        app("db")->table("tenderrecords")->insert($data);
     }
 }
