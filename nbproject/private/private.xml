@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/1_Development/Projects/gransburyPos/resources/views/index.php</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/app/Models/Orders.php</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/app/Http/Controllers/Controller.php</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/public/assets/app/order/orderCtrl.js</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/app/Http/Controllers/OrdersController.php</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/public/assets/app/order/orderSvc.js</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/app/Http/Controllers/ItemsController.php</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/app/Http/Controllers/TenderRecordsController.php</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/app/Models/OrderLineItems.php</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/app/Models/TenderRecords.php</file>
+            <file>file:/C:/1_Development/Projects/gransburyPos/app/Http/routes.php</file>
+        </group>
+    </open-files>
+</project-private>
