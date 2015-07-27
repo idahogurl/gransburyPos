@@ -19,7 +19,7 @@ class Orders
 
     public static function all()
     {
-        return app('db')->table("orders")->select(app('db')->raw("orders.*, amountTendered"))
+        return app('db')->table("orders")->select(app('db')->raw("orders.*, amountTendered, changeGiven"))
             ->leftJoin('tenderrecords', 'tenderrecords.orderId', '=', 'orders.orderId')
             ->get();
     }
@@ -40,6 +40,7 @@ class Orders
 
             app("db")->table("orders")->where("orderId", "=", $orderId)
                 ->update($data);
+            return $orderId;
         }
     }
 
