@@ -2,6 +2,7 @@
  * Created by rvest on 7/15/2015.
  */
 orderApp.controller("orderCtrl", function ($scope, $window, $modal, orderSvc) {
+
     $scope.isLoaded = false;
 
     $scope.items = {};
@@ -17,6 +18,7 @@ orderApp.controller("orderCtrl", function ($scope, $window, $modal, orderSvc) {
             size: "lg",
             backdrop: false,
             windowTemplateUrl: "assets/app/order/templates/modal/window.html",
+            scope: $scope,
             resolve: {
                 orders: function () {
                     return orderSvc.getOrders();
@@ -24,12 +26,14 @@ orderApp.controller("orderCtrl", function ($scope, $window, $modal, orderSvc) {
             }
         });
 
-        modalInstance.result.then(function (orderId) {
-            if (orderId == null) { //start new order
+        modalInstance.result.then(function (data) {
+            if($.isNumeric(data)) {
+                $scope.order = $scope.getOrder(data); //view order
+            } else if (data == null) { //start new order
                 $scope.order = {};
                 $scope.orderLineItems = {};
             } else {
-                $scope.order = $scope.getOrder(orderId); //view order
+                $scope.items = data;
             }
         }, function () {
             console.log("Modal dismissed at: " + new Date());
