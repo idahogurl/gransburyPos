@@ -4,7 +4,6 @@
 orderApp.controller("orderCtrl", function ($scope, $window, $modal, orderSvc) {
 
     $scope.isLoaded = false;
-
     $scope.items = {};
     $scope.orderLineItems = {};
     $scope.selectedOrderItem = {};

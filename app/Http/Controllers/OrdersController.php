@@ -22,9 +22,9 @@ class OrdersController extends Controller
 
         foreach ($orders as $order) {
             $order->status = OrdersController::getStatus($order->orderNumber, $order->amountTendered);
-            $keyValueArray["#".$order->orderId] = $order;
         }
-        return response()->json($keyValueArray);
+
+        return response()->json($orders);
     }
 
     private static function getStatus($orderNumber, $amountTendered)
